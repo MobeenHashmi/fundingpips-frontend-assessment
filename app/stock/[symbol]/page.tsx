@@ -1,26 +1,28 @@
-import { mockStocks } from '@/lib/mockData';
 import StockDetailClient from '@/components/StockChart';
-import { notFound } from 'next/navigation'; // ✅ Next.js way to handle 404
+import { notFound } from 'next/navigation';
+import { fetchStocks } from '@/lib/mockData'; // ⬅️ Replace with your fetch function
 
-// `params` must be awaited inside an async function
 export const dynamic = 'force-dynamic';
+
 export default async function StockDetailPage({
   params,
 }: {
-  params: { symbol: string };
+  params: Promise<{ symbol: string }>; 
 }) {
-  const stock = mockStocks.find((s) => s.symbol === params.symbol);
+  const { symbol } = await params; // ✅ await the params
+  const stocks = await fetchStocks();
+  const stock = stocks.find((s) => s.symbol === symbol);
 
   if (!stock) {
-    notFound(); // ✅ triggers Next.js 404 page
+    notFound();
   }
 
   return <StockDetailClient initialStock={stock} />;
 }
 
-// ✅ Used for static generation if desired
 export async function generateStaticParams() {
-  return mockStocks.map((stock) => ({
+  const stocks = await fetchStocks();
+  return stocks.map((stock) => ({
     symbol: stock.symbol,
   }));
 }

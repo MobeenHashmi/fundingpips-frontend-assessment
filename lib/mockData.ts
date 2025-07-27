@@ -465,7 +465,7 @@ export async function fetchStocks(): Promise<Stock[]> {
     } else {
       console.error('❌ Unexpected error:', error);
     }
-    return mockStocks;
+   return Promise.resolve(mockStocks);
   }
 }
 
