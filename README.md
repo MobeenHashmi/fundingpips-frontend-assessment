@@ -45,7 +45,7 @@ JWT + bcrypt (Mock auth)
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/fundingPips.git
+git clone
 cd fundingPips
 npm install
 🔑 Environment Variables
