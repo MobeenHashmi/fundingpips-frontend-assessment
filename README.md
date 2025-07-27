@@ -1,5 +1,5 @@
  fundingPips - Real-Time Stock Tracking App
-A modern web application built with Next.js 14, Zustand, Tailwind CSS, and Sonner for toasts. It simulates real-time stock tracking, dynamic watchlists, and live price updates – ideal for practice or demos.
+A modern web application built with Next.js 15, Zustand, Tailwind CSS, and Sonner for toasts. It simulates real-time stock tracking, dynamic watchlists, and live price updates – ideal for practice or demos.
 
 🌐 Live Demo
 🔗 Visit the app on Vercel
